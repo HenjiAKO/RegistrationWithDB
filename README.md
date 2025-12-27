@@ -1,9 +1,10 @@
 # Registration System with Database (C# WinForms)
 
 ## 📖 Description
-This project is a **C# Windows Forms Application** that implements a simple **registration system** connected to a local database. It allows users to register and manage records while demonstrating basic database integration and form-based application development.
+This project is a **C# Windows Forms Application** that implements a simple **registration system** connected to a **local SQL Server database**. It demonstrates basic form handling, database connectivity, and CRUD-related logic commonly taught in introductory programming courses.
 
-This project was created as a requirement for **CS301A – Computer Programming**.
+This project was developed as a requirement for  
+**CS301A – Computer Programming**.
 
 ---
 
@@ -17,14 +18,15 @@ This project was created as a requirement for **CS301A – Computer Programming*
 
 ## ✨ Features
 - User registration form
-- Database connection using LocalDB
-- Insert and manage records
-- Simple and beginner-friendly UI
-- Designed for academic purposes
+- Local database integration
+- Insert and update member records
+- Simple and beginner-friendly interface
+- Designed for academic and learning purposes
 
 ---
 
 ## 🗂️ Project Structure
+
 
 Macasilhig_KhyleMyrvin_RegistrationWithDB/
 │
@@ -35,8 +37,8 @@ Macasilhig_KhyleMyrvin_RegistrationWithDB/
 │ ├── FrmUpdateMember.cs
 │ └── Properties/
 │
-├── resources/ # Additional resources
-└── Macasilhig_KhyleMyrvin_RegistrationWithDB.rar
+├── resources/ # Images and other resources
+└── README.md
 
 
 ---
@@ -48,15 +50,38 @@ Macasilhig_KhyleMyrvin_RegistrationWithDB/
 4. Restore any required packages if prompted
 5. Run the project using **Start (F5)**
 
-> ⚠️ Make sure **SQL Server LocalDB** is installed on your machine.
+> ⚠️ **SQL Server LocalDB must be installed** on your system.
 
 ---
 
+## ⚠️ Important Notice: Database File Path Configuration
+
+This project uses a **local database (`.mdf`) with an absolute file path** defined in the connection string.
+
+Because of this:
+- The application **may throw a database connection error** when opened on another computer
+- This happens because the **database file path differs per user and machine**
+
+### 🔧 How to Fix the Error
+When running this project on a new system, the user must **update the database file path** in the code.
+
+1. Open the project in **Visual Studio**
+2. Locate the **connection string** in the source code (commonly found in form files or database-related classes)
+3. Update the path to match the location of `ClubDB.mdf` on your local machine
+4. Save the changes and run the project again
+
+Example:
+```csharp
+@"Data Source=(LocalDB)\MSSQLLocalDB;
+  AttachDbFilename=C:\Your\Local\Path\ClubDB.mdf;
+  Integrated Security=True"
+
+```
 ## 📌 Notes
 - This project is intended for **educational purposes only**
 - Some generated folders (`bin`, `obj`, `.vs`) should normally be excluded using `.gitignore`
+- The use of an absolute path is common in beginner projects but not recommended for production applications
 
----
 
 ## 👤 Author
 **Khyle Myrvin Macasilhig**  
